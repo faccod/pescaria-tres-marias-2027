@@ -19,7 +19,7 @@ export default function HomePage() {
       {/* Header */}
       <header className="mb-8 text-center sm:mb-10">
         <p className="text-xs font-medium uppercase tracking-widest text-sky-700 sm:text-sm">Expedição 2027</p>
-        <h1 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">
+        <h1 className="mt-2 text-xl font-bold text-slate-900 sm:text-2xl md:text-4xl">
            {d.viajem.nome}
         </h1>
         <p className="mt-2 text-sm text-slate-600 sm:text-base">{d.viajem.destino}</p>
@@ -205,18 +205,34 @@ function AmigoCard({ pescador, pix }: { pescador: Pescador; pix: { titular: stri
       </div>
 
       <div className="p-3 sm:p-4">
-        <div className="mb-3 grid grid-cols-3 gap-1 text-center sm:gap-2">
-          <div className="min-w-0">
+        {/* Mobile: lista vertical */}
+        <div className="mb-3 space-y-1 text-xs sm:hidden">
+          <div className="flex items-center justify-between">
+            <span className="uppercase tracking-wider text-slate-500">Cota</span>
+            <span className="font-bold text-slate-900">{formatBRL(pescador.cota_total)}</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="uppercase tracking-wider text-slate-500">Repassado</span>
+            <span className="font-bold text-blue-700">{formatBRL(pescador.sinal_repassado)}</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="uppercase tracking-wider text-slate-500">Falta</span>
+            <span className="font-bold text-amber-700">{formatBRL(pescador.saldo_devedor)}</span>
+          </div>
+        </div>
+        {/* Desktop: 3 colunas centralizadas */}
+        <div className="mb-3 hidden grid-cols-3 gap-2 text-center sm:grid">
+          <div>
             <p className="text-[10px] uppercase tracking-wider text-slate-500">Cota</p>
-            <p className="mt-1 whitespace-nowrap text-[11px] font-bold text-slate-900 sm:text-base">{formatBRL(pescador.cota_total)}</p>
+            <p className="mt-1 text-base font-bold text-slate-900">{formatBRL(pescador.cota_total)}</p>
           </div>
-          <div className="min-w-0">
+          <div>
             <p className="text-[10px] uppercase tracking-wider text-slate-500">Repassado</p>
-            <p className="mt-1 whitespace-nowrap text-[11px] font-bold text-blue-700 sm:text-base">{formatBRL(pescador.sinal_repassado)}</p>
+            <p className="mt-1 text-base font-bold text-blue-700">{formatBRL(pescador.sinal_repassado)}</p>
           </div>
-          <div className="min-w-0">
+          <div>
             <p className="text-[10px] uppercase tracking-wider text-slate-500">Falta</p>
-            <p className="mt-1 whitespace-nowrap text-[11px] font-bold text-amber-700 sm:text-base">{formatBRL(pescador.saldo_devedor)}</p>
+            <p className="mt-1 text-base font-bold text-amber-700">{formatBRL(pescador.saldo_devedor)}</p>
           </div>
         </div>
 
