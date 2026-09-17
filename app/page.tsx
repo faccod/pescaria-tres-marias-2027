@@ -59,8 +59,8 @@ export default function HomePage() {
       <section className="mb-8">
         <h2 className="mb-4 text-lg font-semibold text-slate-900 sm:text-xl">Fornecedores Contratados</h2>
 
-        {/* Mobile: lista de cards vertical */}
-        <div className="space-y-2 sm:hidden">
+        {/* Mobile/tablet: lista de cards vertical (visível em <768px) */}
+        <div className="space-y-2 md:hidden">
           {d.fornecedores.map((f) => (
             <div key={f.id} className="rounded-lg border border-slate-200 bg-white p-3 shadow-sm">
               <p className="text-sm font-medium text-slate-900">{f.item}</p>
@@ -80,8 +80,8 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Desktop: tabela */}
-        <div className="hidden overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm sm:block">
+        {/* Desktop: tabela (visível em >=768px) — overflow-x-auto por segurança */}
+        <div className="hidden overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm md:block">
           <table className="w-full text-sm">
             <thead className="bg-slate-100 text-left text-xs uppercase tracking-wider text-slate-600">
               <tr>
