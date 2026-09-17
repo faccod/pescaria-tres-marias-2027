@@ -15,15 +15,15 @@ export default function HomePage() {
   const amigos = d.equipe.filter((p) => p.slug !== "matheus");
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
+    <main className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-12">
       {/* Header */}
-      <header className="mb-10 text-center">
-        <p className="text-sm font-medium uppercase tracking-widest text-sky-700">Expedição 2027</p>
-        <h1 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
+      <header className="mb-8 text-center sm:mb-10">
+        <p className="text-xs font-medium uppercase tracking-widest text-sky-700 sm:text-sm">Expedição 2027</p>
+        <h1 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">
            {d.viajem.nome}
         </h1>
-        <p className="mt-2 text-slate-600">{d.viajem.destino}</p>
-        <p className="mt-1 text-sm text-slate-500">
+        <p className="mt-2 text-sm text-slate-600 sm:text-base">{d.viajem.destino}</p>
+        <p className="mt-1 text-xs text-slate-500 sm:text-sm">
           Saída <strong className="text-slate-700">{formatDateBR(d.viajem.saida)}</strong> (madrugada de {d.viajem.saida_local}) → Retorno{" "}
           <strong className="text-slate-700">{formatDateBR(d.viajem.retorno)}</strong> • {d.viajem.duracao}
         </p>
@@ -31,15 +31,15 @@ export default function HomePage() {
 
       {/* Resumo Financeiro */}
       <section className="mb-8">
-        <h2 className="mb-4 text-xl font-semibold text-slate-900">Resumo Financeiro</h2>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <h2 className="mb-4 text-lg font-semibold text-slate-900 sm:text-xl">Resumo Financeiro</h2>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
           <Card titulo="Total Contratado" valor={formatBRL(resumo.total_contratado)} sub="Guia + Chalé + Casco" cor="border-slate-300" />
           <Card titulo="Pago Antecipado" valor={formatBRL(resumo.total_pago_antecipado)} sub={`Por Matheus (50% geral)`} cor="border-sky-400" />
           <Card titulo="Falta Receber" valor={formatBRL(resumo.falta_receber)} sub={`De ${amigos.filter((p) => p.status !== "quitado").length} amigo(s)`} cor="border-amber-400" />
         </div>
-        <p className="mt-4 rounded-lg bg-slate-100 p-4 text-sm text-slate-700">
+        <p className="mt-4 rounded-lg bg-slate-100 p-3 text-sm text-slate-700 sm:p-4">
           <strong>Matheus adiantou</strong> {formatBRL(resumo.total_pago_antecipado)} em sinais.{" "}
-          Ele tem <strong className="text-emerald-700">{formatBRL(resumo.reembolso_total_esperado)}</strong> a reaver —{" "}
+          Tem <strong className="text-emerald-700">{formatBRL(resumo.reembolso_total_esperado)}</strong> a reaver —{" "}
           já recebeu <strong className="text-blue-700">{formatBRL(resumo.reembolso_recebido)}</strong>,{" "}
           falta <strong className="text-amber-700">{formatBRL(resumo.falta_receber)}</strong>.
         </p>
@@ -58,25 +58,25 @@ export default function HomePage() {
       {/* Fornecedores — compacto */}
       <section className="mb-8">
         <h2 className="mb-4 text-xl font-semibold text-slate-900">Fornecedores Contratados</h2>
-        <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-          <table className="w-full text-sm">
+        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+          <table className="w-full min-w-[480px] text-sm">
             <thead className="bg-slate-100 text-left text-xs uppercase tracking-wider text-slate-600">
               <tr>
-                <th className="px-4 py-2">Item</th>
-                <th className="px-4 py-2 text-right">Total</th>
-                <th className="px-4 py-2 text-right">Pago</th>
-                <th className="px-4 py-2 text-right">Saldo na Viagem</th>
+                <th className="px-3 py-2 sm:px-4">Item</th>
+                <th className="px-3 py-2 text-right sm:px-4">Total</th>
+                <th className="px-3 py-2 text-right sm:px-4">Pago</th>
+                <th className="px-3 py-2 text-right sm:px-4">Saldo na Viagem</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {d.fornecedores.map((f) => (
                 <tr key={f.id}>
-                  <td className="px-4 py-2 font-medium">{f.item}</td>
-                  <td className="px-4 py-2 text-right">{f.total > 0 ? formatBRL(f.total) : <span className="text-slate-400">a definir</span>}</td>
-                  <td className="px-4 py-2 text-right">
+                  <td className="px-3 py-2 font-medium sm:px-4">{f.item}</td>
+                  <td className="px-3 py-2 text-right sm:px-4">{f.total > 0 ? formatBRL(f.total) : <span className="text-slate-400">a definir</span>}</td>
+                  <td className="px-3 py-2 text-right sm:px-4">
                     {f.sinal_pago > 0 ? <span className="text-emerald-700">{formatBRL(f.sinal_pago)}</span> : <span className="text-slate-400">–</span>}
                   </td>
-                  <td className="px-4 py-2 text-right">
+                  <td className="px-3 py-2 text-right sm:px-4">
                     {f.saldo_viagem > 0 ? formatBRL(f.saldo_viagem) : <span className="text-slate-400">–</span>}
                   </td>
                 </tr>
@@ -152,9 +152,9 @@ export default function HomePage() {
 
 function Card({ titulo, valor, sub, cor }: { titulo: string; valor: string; sub: string; cor: string }) {
   return (
-    <div className={`rounded-xl border-2 bg-white p-4 shadow-sm ${cor}`}>
+    <div className={`rounded-xl border-2 bg-white p-3 shadow-sm sm:p-4 ${cor}`}>
       <p className="text-xs font-medium uppercase tracking-wider text-slate-500">{titulo}</p>
-      <p className="mt-2 text-2xl font-bold text-slate-900">{valor}</p>
+      <p className="mt-1.5 text-xl font-bold text-slate-900 sm:mt-2 sm:text-2xl">{valor}</p>
       <p className="mt-1 text-xs text-slate-500">{sub}</p>
     </div>
   );
@@ -168,32 +168,32 @@ function AmigoCard({ pescador, pix }: { pescador: Pescador; pix: { titular: stri
 
   return (
     <div className="overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm">
-      <div className="flex items-center justify-between border-b border-slate-200 bg-slate-50 p-4">
-        <div>
-          <h3 className="text-lg font-bold text-slate-900">
+      <div className="flex flex-col gap-2 border-b border-slate-200 bg-slate-50 p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4">
+        <div className="min-w-0">
+          <h3 className="text-base font-bold text-slate-900 sm:text-lg">
             {pescador.nome}
-            {pescador.apelido && <span className="text-sm font-normal text-slate-500"> ({pescador.apelido})</span>}
+            {pescador.apelido && <span className="text-xs font-normal text-slate-500 sm:text-sm"> ({pescador.apelido})</span>}
           </h3>
           <p className="text-xs text-slate-500">{pescador.funcao}</p>
         </div>
-        <span className={`inline-block rounded-full border px-3 py-1 text-xs font-bold ${badge.cor}`}>
+        <span className={`self-start whitespace-nowrap rounded-full border px-2.5 py-0.5 text-[10px] font-bold sm:px-3 sm:py-1 sm:text-xs ${badge.cor}`}>
           {badge.label}
         </span>
       </div>
 
-      <div className="p-4">
-        <div className="mb-3 grid grid-cols-3 gap-2 text-center">
-          <div>
+      <div className="p-3 sm:p-4">
+        <div className="mb-3 grid grid-cols-3 gap-1 text-center sm:gap-2">
+          <div className="min-w-0">
             <p className="text-[10px] uppercase tracking-wider text-slate-500">Cota</p>
-            <p className="mt-1 text-base font-bold text-slate-900">{formatBRL(pescador.cota_total)}</p>
+            <p className="mt-1 whitespace-nowrap text-[11px] font-bold text-slate-900 sm:text-base">{formatBRL(pescador.cota_total)}</p>
           </div>
-          <div>
+          <div className="min-w-0">
             <p className="text-[10px] uppercase tracking-wider text-slate-500">Repassado</p>
-            <p className="mt-1 text-base font-bold text-blue-700">{formatBRL(pescador.sinal_repassado)}</p>
+            <p className="mt-1 whitespace-nowrap text-[11px] font-bold text-blue-700 sm:text-base">{formatBRL(pescador.sinal_repassado)}</p>
           </div>
-          <div>
+          <div className="min-w-0">
             <p className="text-[10px] uppercase tracking-wider text-slate-500">Falta</p>
-            <p className="mt-1 text-base font-bold text-amber-700">{formatBRL(pescador.saldo_devedor)}</p>
+            <p className="mt-1 whitespace-nowrap text-[11px] font-bold text-amber-700 sm:text-base">{formatBRL(pescador.saldo_devedor)}</p>
           </div>
         </div>
 
@@ -201,20 +201,20 @@ function AmigoCard({ pescador, pix }: { pescador: Pescador; pix: { titular: stri
         {pescador.saldo_devedor > 0 && (
           <div className="rounded-lg bg-amber-50 p-3 text-sm">
             {precisaPagarMatheus && (
-              <div className="flex items-center justify-between border-b border-amber-200 pb-2">
-                <div>
+              <div className="flex items-center justify-between gap-2 border-b border-amber-200 pb-2">
+                <div className="min-w-0">
                   <p className="font-medium text-slate-900">Sinal → Matheus (PIX)</p>
                   <p className="text-xs text-slate-500">Matheus adiantou em set/2026</p>
                 </div>
-                <p className="font-bold text-amber-700">{formatBRL(sinalFaltante)}</p>
+                <p className="whitespace-nowrap font-bold text-amber-700">{formatBRL(sinalFaltante)}</p>
               </div>
             )}
-            <div className={`flex items-center justify-between ${precisaPagarMatheus ? "pt-2" : ""}`}>
-              <div>
+            <div className={`flex items-center justify-between gap-2 ${precisaPagarMatheus ? "pt-2" : ""}`}>
+              <div className="min-w-0">
                 <p className="font-medium text-slate-900">Saldo → Pousada (janeiro/27)</p>
                 <p className="text-xs text-slate-500">Acerto presencial</p>
               </div>
-              <p className="font-bold text-amber-700">{formatBRL(saldoNaPousada)}</p>
+              <p className="whitespace-nowrap font-bold text-amber-700">{formatBRL(saldoNaPousada)}</p>
             </div>
           </div>
         )}
@@ -222,8 +222,8 @@ function AmigoCard({ pescador, pix }: { pescador: Pescador; pix: { titular: stri
         {/* PIX do Matheus (se precisar) */}
         {precisaPagarMatheus && (
           <div className="mt-3 rounded-lg border border-emerald-300 bg-emerald-50 p-3 text-sm">
-            <p className="mb-1 text-xs font-bold uppercase tracking-wider text-emerald-800">Pagar Matheus agora ({formatBRL(sinalFaltante)})</p>
-            <p className="font-mono text-sm font-bold text-slate-900">{pix.chave}</p>
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-emerald-800 sm:text-xs">Pagar Matheus agora ({formatBRL(sinalFaltante)})</p>
+            <p className="break-all font-mono text-sm font-bold text-slate-900 sm:text-base">{pix.chave}</p>
             <p className="text-xs text-slate-600">{pix.titular} • {pix.banco}</p>
           </div>
         )}
