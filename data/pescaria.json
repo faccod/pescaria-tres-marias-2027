@@ -1,0 +1,238 @@
+{
+  "viajem": {
+    "nome": "Pescaria Três Marias 2027",
+    "destino": "Pousada do Júnior – Lago de Três Marias / Rio São Francisco, MG",
+    "saida": "2027-01-12",
+    "saida_local": "Santa Maria de Jetibá - ES",
+    "retorno": "2027-01-16",
+    "duracao": "5 dias / 4 pernoites",
+    "descricao": "Expedição de pesca em grupo – 5 pescadores, 1 chalé com ar-condicionado, guia Edinho e casco de barco por 3 dias"
+  },
+  "pix_matheus": {
+    "titular": "Matheus Facco Krause",
+    "chave": "127.790.037-07",
+    "chave_digitos": "12779003707",
+    "tipo_chave": "CPF",
+    "banco": "Pic Pay",
+    "obs": "Quando você for pagar Matheus, usa essa chave PIX (CPF). O PicPay aceita pagamento por CPF sem problema."
+  },
+  "fornecedores": [
+    {
+      "id": "guia-edinho",
+      "item": "Guia Edinho (2 diárias)",
+      "fornecedor": "Édio Aparecido dos Santos",
+      "total": 560.00,
+      "sinal_pago": 280.00,
+      "saldo_viagem": 280.00,
+      "comprovante_pagamento": "#CPV-001",
+      "obs": "Pix: 11155300629"
+    },
+    {
+      "id": "chale",
+      "item": "Chalé c/ ar (4 diárias x 5)",
+      "fornecedor": "Pousada do Júnior",
+      "total": 2400.00,
+      "sinal_pago": 1200.00,
+      "saldo_viagem": 1200.00,
+      "comprovante_pagamento": "#CPV-002",
+      "obs": "Chalé completo p/ 5 pescadores"
+    },
+    {
+      "id": "casco",
+      "item": "Casco de Barco (3 dias)",
+      "fornecedor": "Pousada do Júnior",
+      "total": 450.00,
+      "sinal_pago": 225.00,
+      "saldo_viagem": 225.00,
+      "comprovante_pagamento": "#CPV-002",
+      "obs": "Atribuído a Rhuan e Kevin (locatários)"
+    },
+    {
+      "id": "combustivel-barco",
+      "item": "Combustível de Barco & Óleo 2T",
+      "fornecedor": "Posto náutico / Pousada",
+      "total": 0,
+      "sinal_pago": 0,
+      "saldo_viagem": 0,
+      "obs": "Pagar no local (consumo da pousada)"
+    },
+    {
+      "id": "gasolina-rodovia",
+      "item": "Gasolina Rodovia & Pedágios",
+      "fornecedor": "Postos de combustível",
+      "total": 0,
+      "sinal_pago": 0,
+      "saldo_viagem": 0,
+      "obs": "Combustível da viagem de carro ES → MG"
+    },
+    {
+      "id": "rancho",
+      "item": "Compras Rancho & Mantimentos",
+      "fornecedor": "Supermercado / Distribuidora",
+      "total": 0,
+      "sinal_pago": 0,
+      "saldo_viagem": 0,
+      "obs": "Supermercado / Distribuidora (pré-viagem)"
+    },
+    {
+      "id": "iscas-vivas",
+      "item": "Iscas Vivas (Tuviras)",
+      "fornecedor": "Fornecedor local",
+      "total": 0,
+      "sinal_pago": 0,
+      "saldo_viagem": 0,
+      "obs": "Fornecedor local (pendente)"
+    }
+  ],
+  "equipe": [
+    {
+      "slug": "matheus",
+      "nome": "Matheus Facco",
+      "apelido": null,
+      "funcao": "Organização Geral & Gestão Financeira",
+      "cota_total": 592.00,
+      "sinal_esperado": 296.00,
+      "sinal_repassado": 0,
+      "saldo_devedor": 296.00,
+      "status": "credor",
+      "status_detalhe": "Adiantou tudo o sinal – credor de R$ 1.000,50 do grupo"
+    },
+    {
+      "slug": "rhuan",
+      "nome": "Rhuan",
+      "apelido": null,
+      "funcao": "Pescador (Locatário do Casco)",
+      "cota_total": 817.00,
+      "sinal_esperado": 408.50,
+      "sinal_repassado": 408.50,
+      "saldo_devedor": 408.50,
+      "status": "sinal-quitado",
+      "status_detalhe": "Sinal quitado (#REC-001) – falta pagar R$ 408,50 (50% final) na pousada"
+    },
+    {
+      "slug": "wendel",
+      "nome": "Wendel",
+      "apelido": null,
+      "funcao": "Pescador",
+      "cota_total": 592.00,
+      "sinal_esperado": 296.00,
+      "sinal_repassado": 0,
+      "saldo_devedor": 592.00,
+      "status": "aguardando-sinal",
+      "status_detalhe": "Aguardando sinal (R$ 296,00) + saldo de R$ 296,00 na pousada"
+    },
+    {
+      "slug": "douglas",
+      "nome": "Douglas",
+      "apelido": "Vegetal",
+      "funcao": "Pescador",
+      "cota_total": 592.00,
+      "sinal_esperado": 296.00,
+      "sinal_repassado": 0,
+      "saldo_devedor": 592.00,
+      "status": "aguardando-sinal",
+      "status_detalhe": "Aguardando sinal (R$ 296,00) + saldo de R$ 296,00 na pousada"
+    },
+    {
+      "slug": "kevin",
+      "nome": "Kevin",
+      "apelido": "Keké",
+      "funcao": "Pescador (Locatário do Casco)",
+      "cota_total": 817.00,
+      "sinal_esperado": 408.50,
+      "sinal_repassado": 0,
+      "saldo_devedor": 817.00,
+      "status": "aguardando-sinal",
+      "status_detalhe": "Aguardando sinal (R$ 408,50) + saldo de R$ 408,50 na pousada"
+    }
+  ],
+  "comprovantes": [
+    {
+      "id": "#CPV-001",
+      "data": "2026-09-11T11:12:24",
+      "tipo": "pago",
+      "descricao": "Sinal (50%) – 2 diárias Guia Edinho",
+      "favorecido": "Édio Aparecido dos Santos (Bco Santander Brasil)",
+      "valor": 280.00,
+      "pix": "11155300629",
+      "autenticacao": "E22896431202609111411J7J0SHL18J5"
+    },
+    {
+      "id": "#CPV-002",
+      "data": "2026-09-11T16:54:20",
+      "tipo": "pago",
+      "descricao": "Sinal (50%) Pousada – Chalé (R$ 1.200) + Casco Barco (R$ 225)",
+      "favorecido": "Bruno G Araújo Lima (Nu Pagamentos - IP / BB)",
+      "valor": 1425.00,
+      "pix": "08559565698",
+      "autenticacao": "E0000000020260911195410583228932 | Aut: A.D52.92D.6FA.432.39E"
+    },
+    {
+      "id": "#REC-001",
+      "data": "2026-09-16T20:30:00",
+      "tipo": "recebido",
+      "descricao": "Reembolso do sinal – Rhuan",
+      "favorecido": "Rhuan",
+      "valor": 408.50,
+      "pix": "(chave particular do Rhuan)",
+      "autenticacao": "E31872495202609162030WhdWjY2mX36 | Aut: 01M2NYN1WEVMW8PD8Z09SAWYTX"
+    }
+  ],
+  "checklist": [
+    {
+      "categoria": "Material de Pesca & Náutica",
+      "emoji": "",
+      "itens": [
+        { "nome": "Varas com carretilha / molinete", "obs": "Leves/médias p/ tucunaré, pesadas p/ peixe de couro", "checked": false },
+        { "nome": "Iscas artificiais", "obs": "Superfície (zaras, poppers), meia-água, jigs e shads", "checked": false },
+        { "nome": "Linha de pesca & Shock Leader", "obs": "Multifilamento 30-40 lbs + fluorocarbono 0,45-0,55mm", "checked": false },
+        { "nome": "Passaguá", "obs": "Essencial p/ embarcar peixes sem perder troféus", "checked": false },
+        { "nome": "Coletes salva-vidas", "obs": "1 por pessoa (obrigatório Capitania dos Portos)", "checked": false },
+        { "nome": "Óleo 2 Tempos", "obs": "Pro motor de popa náutico", "checked": false },
+        { "nome": "Estepe para reboque do barco", "obs": "Calibrado, p/ carreta rodoviária", "checked": false }
+      ]
+    },
+    {
+      "categoria": "Acessórios Indispensáveis, Elétrica & Ferramentas",
+      "emoji": "",
+      "itens": [
+        { "nome": "Carregadores de bateria", "obs": "2 unidades (p/ baterias dos motores elétricos)", "checked": false },
+        { "nome": "Power bank (bateria portátil)", "obs": "P/ manter celulares, rádios e lanternas carregados", "checked": false },
+        { "nome": "Extensão grande", "obs": "Cabo longo e reforçado p/ ligar carregadores próximo aos barcos", "checked": false },
+        { "nome": "Lâmpadas & Bocal c/ tomada", "obs": "Iluminação extra p/ área externa, rancho ou consertos", "checked": false },
+        { "nome": "Lanternas", "obs": "De cabeça e de mão + pilhas/cabos reservas", "checked": false },
+        { "nome": "Ferramentas para socorro", "obs": "Chaves de roda, alicates, chave de fenda/philips, silver tape, fita isolante", "checked": false },
+        { "nome": "Caixas térmicas", "obs": "P/ gelo e bebidas nos barcos + armazenar carnes/peixes", "checked": false },
+        { "nome": "Cadeira de praia & Guarda-sol", "obs": "Conforto no barranco ou área externa da pousada", "checked": false },
+        { "nome": "Corda para varal", "obs": "P/ estender roupas molhadas, toalhas e camisas de pesca", "checked": false }
+      ]
+    },
+    {
+      "categoria": "Alimentação, Bebidas & Rancho de Cozinha",
+      "emoji": "",
+      "itens": [
+        { "nome": "Água mineral 500ml", "obs": "12 fardos c/ 12 garrafas (Total: 144 garrafas)", "checked": false },
+        { "nome": "Coca-Cola em lata", "obs": "Fardos p/ barco, almoços e jantares", "checked": false },
+        { "nome": "Energéticos", "obs": "Latas p/ a turma", "checked": false },
+        { "nome": "Carnes para refeições", "obs": "Aprox. 10 kg (churrasco, almoço e jantar nos 5 dias)", "checked": false },
+        { "nome": "Arroz, Trigo & Óleo de soja", "obs": "Arroz p/ acompanhamento, trigo p/ empanar peixe, óleo p/ fritura", "checked": false },
+        { "nome": "Hortifúti", "obs": "Tomate, cebola, alho, repolho (salada durável p/ calor) e frutas frescas", "checked": false },
+        { "nome": "Sal & Temperos", "obs": "Sal fino, sal grosso e temperos p/ churrasco e peixe", "checked": false },
+        { "nome": "Café da Manhã", "obs": "Pó de café, garrafa térmica, coador e açúcar/adoçante", "checked": false },
+        { "nome": "Equipamentos de Fritura / Rancho", "obs": "Fogareiro a gás, botijão/cartuchos, tacho de fritura e grelha de peixe", "checked": false },
+        { "nome": "Utensílios & Descartáveis", "obs": "Garfos/facas de metal, papel toalha e descartáveis (p/ comer embarcado)", "checked": false }
+      ]
+    },
+    {
+      "categoria": "Uso Pessoal, Acomodação, Proteção & Saúde",
+      "emoji": "",
+      "itens": [
+        { "nome": "Roupa de cama e banho", "obs": "ATENÇÃO: cada pescador leva o seu jogo (lençol, travesseiro, fronha, toalha). A pousada NÃO fornece.", "checked": false },
+        { "nome": "Vestuário c/ proteção solar", "obs": "Camisas manga longa UV, bermudas/calças leves de secagem rápida", "checked": false },
+        { "nome": "Proteção Solar de Rosto / Cabeça", "obs": "Protetor FPS 50+, óculos polarizados, balaclava, boné/chapéu", "checked": false },
+        { "nome": "Kit Farmácia & Primeiros Socorros", "obs": "Paracetamol/Dipirona, relaxante muscular, antiácido, antialérgico, Dramin, repelente e curativos", "checked": false },
+        { "nome": "Higiene & Limpeza Pesada", "obs": "Papel higiênico, 1 barra de sabão e escova de limpeza pesada (peixe, grelha, tacho, barco)", "checked": false }
+      ]
+    }
+  ]
+}
