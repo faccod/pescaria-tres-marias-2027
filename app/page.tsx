@@ -55,28 +55,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Fornecedores — compacto */}
+      {/* Fornecedores — cards no mobile, tabela no desktop */}
       <section className="mb-8">
-        <h2 className="mb-4 text-xl font-semibold text-slate-900">Fornecedores Contratados</h2>
-        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-          <table className="w-full min-w-[480px] text-sm">
+        <h2 className="mb-4 text-lg font-semibold text-slate-900 sm:text-xl">Fornecedores Contratados</h2>
+
+        {/* Mobile: lista de cards vertical */}
+        <div className="space-y-2 sm:hidden">
+          {d.fornecedores.map((f) => (
+            <div key={f.id} className="rounded-lg border border-slate-200 bg-white p-3 shadow-sm">
+              <p className="text-sm font-medium text-slate-900">{f.item}</p>
+              <div className="mt-2 flex items-center justify-between text-xs">
+                <span className="text-slate-500">Total:</span>
+                <span className="font-semibold">{f.total > 0 ? formatBRL(f.total) : <span className="text-slate-400">a definir</span>}</span>
+              </div>
+              <div className="mt-1 flex items-center justify-between text-xs">
+                <span className="text-slate-500">Pago:</span>
+                {f.sinal_pago > 0 ? <span className="font-semibold text-emerald-700">{formatBRL(f.sinal_pago)}</span> : <span className="text-slate-400">–</span>}
+              </div>
+              <div className="mt-1 flex items-center justify-between text-xs">
+                <span className="text-slate-500">Saldo na viagem:</span>
+                {f.saldo_viagem > 0 ? <span className="font-semibold">{formatBRL(f.saldo_viagem)}</span> : <span className="text-slate-400">–</span>}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: tabela */}
+        <div className="hidden overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm sm:block">
+          <table className="w-full text-sm">
             <thead className="bg-slate-100 text-left text-xs uppercase tracking-wider text-slate-600">
               <tr>
-                <th className="px-3 py-2 sm:px-4">Item</th>
-                <th className="px-3 py-2 text-right sm:px-4">Total</th>
-                <th className="px-3 py-2 text-right sm:px-4">Pago</th>
-                <th className="px-3 py-2 text-right sm:px-4">Saldo na Viagem</th>
+                <th className="px-4 py-2">Item</th>
+                <th className="px-4 py-2 text-right">Total</th>
+                <th className="px-4 py-2 text-right">Pago</th>
+                <th className="px-4 py-2 text-right">Saldo na Viagem</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {d.fornecedores.map((f) => (
                 <tr key={f.id}>
-                  <td className="px-3 py-2 font-medium sm:px-4">{f.item}</td>
-                  <td className="px-3 py-2 text-right sm:px-4">{f.total > 0 ? formatBRL(f.total) : <span className="text-slate-400">a definir</span>}</td>
-                  <td className="px-3 py-2 text-right sm:px-4">
+                  <td className="px-4 py-2 font-medium">{f.item}</td>
+                  <td className="px-4 py-2 text-right">{f.total > 0 ? formatBRL(f.total) : <span className="text-slate-400">a definir</span>}</td>
+                  <td className="px-4 py-2 text-right">
                     {f.sinal_pago > 0 ? <span className="text-emerald-700">{formatBRL(f.sinal_pago)}</span> : <span className="text-slate-400">–</span>}
                   </td>
-                  <td className="px-3 py-2 text-right sm:px-4">
+                  <td className="px-4 py-2 text-right">
                     {f.saldo_viagem > 0 ? formatBRL(f.saldo_viagem) : <span className="text-slate-400">–</span>}
                   </td>
                 </tr>
