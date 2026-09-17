@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pescaria Três Marias 2027 – Controle Financeiro
 
-## Getting Started
+App web (Next.js + Vercel Free) pra controle financeiro da viagem de pesca em grupo pra Pousada do Júnior, Três Marias/MG (12-16 janeiro/2027).
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 14** (App Router)
+- **Tailwind CSS 3**
+- **Sem banco de dados** — tudo num arquivo `data/pescaria.json` versionado no GitHub
+- **Vercel Free** — auto-deploy em cada push
+
+## Como funciona
+
+1. **Equipe acessa pelo link** (subdomínio Vercel tipo `pescaria-tres-marias-2027.vercel.app`)
+2. **Vê tudo numa landing única** — resumo financeiro, situação de cada amigo, fornecedores, comprovantes e checklist
+3. **Cada amigo procura o card dele** e vê quanto deve, dados do PIX do Matheus, cronograma
+4. **Matheus atualiza pelo chat comigo** — eu edito `data/pescaria.json`, dou commit/push, Vercel redeploya em ~30s
+
+## Estrutura
+
+```
+web/
+├── app/
+│   ├── page.tsx           # landing única
+│   ├── layout.tsx
+│   └── globals.css
+├── lib/
+│   └── data.ts            # tipos + helpers de cálculo
+├── data/
+│   └── pescaria.json      # fonte de verdade (atualizar aqui)
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Como Matheus atualiza (via chat comigo)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Só me avisar no chat, tipo:
+- "Rhuan pagou os 408,50" → eu atualizo o `sinal_repassado` dele pra 408.50 + status `sinal-quitado`
+- "Wendel pagou 296" → atualizo Wendel
+- "Coloquei gasolina 800 reais" → adiciono linha em fornecedores
+- Etc.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Eu edito o JSON, commito, dou push. Vercel detecta em 30s e o link atualiza sozinho.
 
-## Learn More
+## Dev local
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+cd web
+npm install
+npm run dev
+# abrir http://localhost:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Já tá conectado no GitHub: https://github.com/faccod/pescaria-tres-marias-2027
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vercel Free auto-deploy em cada push pra `main`.
